@@ -1,5 +1,7 @@
+import ExpenseContainer from "../containers/ExpenseContainer";
+
 const Home = () => {
-	return <div>Home</div>;
+	return <ExpenseContainer />;
 };
 
 export default Home;

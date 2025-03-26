@@ -3,10 +3,18 @@ import * as bodyParser from "body-parser";
 import { Request, Response } from "express";
 import { AppDataSource } from "./config/data-source";
 import { Routes } from "./routes";
+import * as cors from "cors";
 
 AppDataSource.initialize()
 	.then(async () => {
 		const app = express();
+
+		app.use(
+			cors({
+				origin: "http://localhost:5173",
+			})
+		);
+
 		app.use(bodyParser.json());
 
 		Routes.forEach((route) => {
